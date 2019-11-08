@@ -23,8 +23,8 @@ describe("Button component", () => {
   test("it shows the expected text when clicked (testing the wrong way!)", () => {
     const component = create(<Button text="SUBSCRIBE TO BASIC" />);
     const instance = component.getInstance();
-    expect(instance.state.text).toBe("");
-    instance.handleClick();
-    expect(instance.state.text).toBe("PROCEED TO CHECKOUT");
+    const button = instance.findByType("button");
+    button.props.onClick();
+    expect(button.props.children).toBe("PROCEED TO CHECKOUT");
   });
 });
